@@ -8,7 +8,7 @@ const TreeArticle = props => {
     try {
       let url;
       if (Platform.OS == 'android') {
-        url = "http://10.0.2.2:32782/api/trees/";
+        url = "http://10.0.2.2:32783/api/trees/";
       }
       else {
         url = "http://examenopdracht-support-trees.ddev.site/api/trees/";
@@ -20,7 +20,7 @@ const TreeArticle = props => {
       const json = await response.json();
       if (Platform.OS == 'android') {
         //ddev describe om port number te weten te komen
-        json.headerImg = json.headerImg.replace("examenopdracht-support-trees.ddev.site", "10.0.2.2:32782");
+        json.treeThumbnail = json.treeThumbnail.replace("examenopdracht-support-trees.ddev.site", "10.0.2.2:32783");
       }
       setArticle(json);
     } catch (error) {
@@ -42,9 +42,12 @@ const TreeArticle = props => {
       />
       <View style={styles.wrapper}>
         <Text style={styles.title}>{article.title}</Text>
-        <Text style={styles.body}>{article.treeArticle}</Text>
+        <Text style={styles.body}>{article.introText}</Text>
+        <Text style={styles.body}>{article.botanicalName}</Text>
+        <Text style={styles.body}>{article.nativeArea}</Text>
+        <Text style={styles.body}>{article.plantFamily}</Text>
       </View>
-    </ScrollView >
+    </ScrollView>
   );
 }
 

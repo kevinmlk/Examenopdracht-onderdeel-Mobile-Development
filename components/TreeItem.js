@@ -12,7 +12,10 @@ const TreeItem = props => {
           }}
         />
         <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.intro}>{props.intro}</Text>
+        <Text style={styles.intro}>{props.introText}</Text>
+        <Text style={styles.intro}>Botanical name: {props.botanicalName}</Text>
+        <Text style={styles.intro}>Native area: {props.nativeAreas}</Text>
+        <Text style={styles.intro}>Plant family: {props.plantFamily}</Text>
       </View>
     </TouchableOpacity >
   );
