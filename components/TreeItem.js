@@ -1,5 +1,22 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Button } from 'react-native';
+import React, {useCallback} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Button, Linking } from 'react-native';
+
+// Tree link web browser linking
+const OpenURLButton = ({url, children}) => {
+  const handlePress = useCallback(async () => {
+    // Checking if the link is supported for links with custom URL
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      // If the URL scheme is "http" the web link should be opened
+      await Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
+  }, [url]);
+
+  return <Button title={children} onPress={handlePress} color='#198754' />;
+};
 
 const TreeItem = props => {
   return (
@@ -20,10 +37,7 @@ const TreeItem = props => {
             <Text style={styles.listGroupItem}>Native area: {props.nativeAreas}</Text>
             <Text style={styles.listGroupItem}>Plant family: {props.plantFamily}</Text>
           </View>
-          <Button
-            title="Shop the tree"
-            style={styles.buttonPrimary}
-          />
+          <OpenURLButton url={props.treeLink}>Shop the tree</OpenURLButton>
         </View>
       </View>
     </TouchableOpacity >
@@ -72,8 +86,8 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     paddingTop: 8,
   },
-  buttonPrimary: {
-    width: 50,
-  },
+  cardLink: {
+    color: "#00FF7F",
+  }
 });
 export default TreeItem;

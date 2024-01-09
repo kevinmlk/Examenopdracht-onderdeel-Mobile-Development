@@ -56,7 +56,7 @@ const TreesScreen = ({ navigation }) => {
             plantFamily={item.plantFamily}
             introText={item.introText}
             fullText={item.articleText}
-            shopLink={item.shopLink}
+            treeLink={item.treeLink}
             navigation={navigation}
             onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
           />
