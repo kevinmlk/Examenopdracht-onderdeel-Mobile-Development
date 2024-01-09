@@ -1,12 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+// Import Trees article
+import Article from '../components/TreesArticle';
 
-const TreesDetailsScreen = ({ navigation }) => {
+const TreesDetailsScreen = ({ route, navigation }) => {
+  const { id } = route.params;
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+    <View style={styles.screen}>
+      <Article articleId={id} />
       <Button
-        title="Go to Trees"
+        title="back to Trees"
         onPress={() => navigation.navigate('Trees')}
       />
     </View>
@@ -16,8 +20,8 @@ const TreesDetailsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: "#F8F6F6",
   }
 });
 export default TreesDetailsScreen;

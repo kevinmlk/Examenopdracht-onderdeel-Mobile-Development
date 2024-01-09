@@ -51,6 +51,8 @@ const TreesScreen = ({ navigation }) => {
             banner={item.treeThumbnail}
             botanicalName={item.botanicalName}
             nativeAreas={item.nativeAreas}
+            treeHeight={item.treeHeight}
+            treeWidth={item.treeWidth}
             plantFamily={item.plantFamily}
             introText={item.introText}
             navigation={navigation}

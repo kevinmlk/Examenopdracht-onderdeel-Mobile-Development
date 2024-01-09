@@ -43,9 +43,14 @@ const TreeArticle = props => {
       <View style={styles.wrapper}>
         <Text style={styles.title}>{article.title}</Text>
         <Text style={styles.body}>{article.introText}</Text>
-        <Text style={styles.body}>{article.botanicalName}</Text>
-        <Text style={styles.body}>{article.nativeArea}</Text>
-        <Text style={styles.body}>{article.plantFamily}</Text>
+        <View style={styles.listGroup}>
+          <Text style={styles.listGroupItem}>{article.botanicalName}</Text>
+          <Text style={styles.listGroupItem}>{article.plantFamily}</Text>
+          <Text style={styles.listGroupItem}>{article.treeHeight}</Text>
+          <Text style={styles.listGroupItem}>{article.treeWidth}</Text>
+          <Text style={styles.listGroupItem}>{article.nativeAreas}</Text>
+          <Text style={styles.listGroupItem}>{article.plantType}</Text>
+        </View>
       </View>
     </ScrollView>
   );
@@ -53,7 +58,7 @@ const TreeArticle = props => {
 
 const styles = StyleSheet.create({
   image: {
-    height: 150,
+    height: 270,
   },
   wrapper: {
     padding: 24
@@ -61,10 +66,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: "#D24335",
-    fontWeight: "bold",
     textTransform: "uppercase",
     marginBottom: 24,
-    fontFamily: 'Inter-Regular',
   },
   body: {
     lineHeight: 24
