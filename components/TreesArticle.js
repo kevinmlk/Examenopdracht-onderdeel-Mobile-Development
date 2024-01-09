@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: "#F7F9F9",
-    marginBottom: 16,
+    marginBottom: 8,
   },
   intro: {
     color: '#F7F9F9',
@@ -95,13 +95,14 @@ const styles = StyleSheet.create({
   subheader: {
     color: '#F7F9F9',
     fontSize: 20,
-    marginBottom: 8,
+    marginBottom: 16,
   },
   listGroup: {
     backgroundColor: "rgba(247, 249, 249, .05)",
     paddingTop: 8,
     paddingBottom: 8,
-    marginBottom: 16,
+    marginBottom: 24,
+    borderRadius: 5,
   },
   listGroupItem: {
     color: "#F7F9F9",
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
   },
   strongText: {
     color: '#198754',
-    fontWeight: '600',
+    fontWeight: '700',
   },
 });
 export default TreeArticle;

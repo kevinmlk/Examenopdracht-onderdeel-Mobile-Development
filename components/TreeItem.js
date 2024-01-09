@@ -21,34 +21,40 @@ const OpenURLButton = ({url, children}) => {
 const TreeItem = props => {
   return (
     <TouchableOpacity activeOpacity={0.5} onPress={() => props.onSelectArticle(props.id)}>
-      <View style={styles.treeItem}>
-        <Image
-          style={styles.banner}
-          source={{
-            uri: props.banner
-          }}
-        />
-        <View style={styles.cardBody}>
-          <Text style={styles.title}>{props.title}</Text>
-          <Text style={styles.intro}>{props.introText}</Text>
-          {/* Tree list info */}
-          <View style={styles.listGroup}>
-            <Text style={styles.listGroupItem}>Botanical name: {props.botanicalName}</Text>
-            <Text style={styles.listGroupItem}>Native area: {props.nativeAreas}</Text>
-            <Text style={styles.listGroupItem}>Plant family: {props.plantFamily}</Text>
+      <View style={styles.treeContainer}>
+        <View style={styles.treeItem}>
+          <Image
+            style={styles.banner}
+            source={{
+              uri: props.banner
+            }}
+          />
+          <View style={styles.cardBody}>
+            <Text style={styles.title}>{props.title}</Text>
+            <Text style={styles.intro}>{props.introText}</Text>
+            {/* Tree list info */}
+            <View style={styles.listGroup}>
+              <Text style={styles.listGroupItem}><Text style={styles.strongText}>Botanical name: </Text>{props.botanicalName}</Text>
+              <Text style={styles.listGroupItem}><Text style={styles.strongText}>Native area: </Text>{props.nativeAreas}</Text>
+              <Text style={styles.listGroupItem}><Text style={styles.strongText}>Plant family: </Text>{props.plantFamily}</Text>
+            </View>
           </View>
-          <OpenURLButton url={props.treeLink}>Shop the tree</OpenURLButton>
         </View>
+        <OpenURLButton url={props.treeLink}>Shop the tree</OpenURLButton>
       </View>
     </TouchableOpacity >
   );
 }
 
 const styles = StyleSheet.create({
+  treeContainer: {
+    marginVertical: 24,
+  },
   treeItem: {
-    marginVertical: 16,
-    backgroundColor: "rgba(247, 249, 249, .05)",
+    backgroundColor: 'rgba(247, 249, 249, .05)',
     borderRadius: 10,
+    marginBottom: 24,
+    paddingBottom: 16,
   },
   banner: {
     height: 270,
@@ -56,8 +62,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   title: {
-    color: "#F7F9F9",
+    color: '#F7F9F9',
     fontSize: 24,
+    fontWeight: '600',
     marginTop: 16,
     marginBottom: 8,
     paddingLeft: 16,
@@ -65,23 +72,29 @@ const styles = StyleSheet.create({
   },
   intro: {
     marginBottom: 16,
-    color: "#F7F9F9",
+    color: '#F7F9F9',
     paddingLeft: 16,
     paddingRight: 16,
     fontSize: 14,
     lineHeight: 24,
   },
   listGroup: {
-    backgroundColor: "rgba(247, 249, 249, .05)",
-    paddingTop: 8,
-    paddingBottom: 8,
+    backgroundColor: 'rgba(247, 249, 249, .05)',
+    borderTopWidth: .2,
+    borderTopColor: '#F7F9F9',
   },
   listGroupItem: {
-    color: "#F7F9F9",
+    color: '#F7F9F9',
     paddingLeft: 16,
     paddingRight: 16,
-    paddingBottom: 8,
-    paddingTop: 8,
+    paddingBottom: 16,
+    paddingTop: 16,
+    borderBottomWidth: .2,
+    borderBottomColor: '#F7F9F9',
+  },
+  strongText: {
+    color: '#198754',
+    fontWeight: '700',
   },
 });
 export default TreeItem;
