@@ -35,7 +35,7 @@ const TreesScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>Support Trees</Text>
+      <Text style={styles.title}>Catalogus</Text>
       <FlatList
         style={styles.list}
         data={articles}
@@ -69,18 +69,16 @@ const TreesScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   screen: {
     padding: 24,
-    backgroundColor: "#F8F6F6",
+    backgroundColor: "#171A21",
   },
   list: {
     height: "90%",
   },
   title: {
     fontSize: 24,
-    color: "#D24335",
+    color: "#F7F9F9",
     fontWeight: "bold",
-    textTransform: "uppercase",
     marginBottom: 8,
-    textAlign: "center"
   }
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Button } from 'react-native';
 
 const TreeItem = props => {
   return (
@@ -15,11 +15,15 @@ const TreeItem = props => {
           <Text style={styles.title}>{props.title}</Text>
           <Text style={styles.intro}>{props.introText}</Text>
           {/* Tree list info */}
-          <View>
+          <View style={styles.listGroup}>
             <Text style={styles.listGroupItem}>Botanical name: {props.botanicalName}</Text>
             <Text style={styles.listGroupItem}>Native area: {props.nativeAreas}</Text>
             <Text style={styles.listGroupItem}>Plant family: {props.plantFamily}</Text>
           </View>
+          <Button
+            title="Shop the tree"
+            style={styles.buttonPrimary}
+          />
         </View>
       </View>
     </TouchableOpacity >
@@ -28,32 +32,48 @@ const TreeItem = props => {
 
 const styles = StyleSheet.create({
   treeItem: {
-    marginVertical: 8,
-    backgroundColor: "#fff",
-    borderRadius: 5,
-    shadowRadius: 1,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
+    marginVertical: 16,
+    backgroundColor: "rgba(247, 249, 249, .05)",
+    borderRadius: 10,
   },
   banner: {
-    height: 270
+    height: 270,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
   },
   cardBody: {
-    padding: 12,
+    
   },
   title: {
-    color: "#171A21",
-    fontSize: 16,
-    marginTop: 12,
-    marginBottom: 12,
-    textTransform: "uppercase"
+    color: "#F7F9F9",
+    fontSize: 24,
+    marginTop: 16,
+    marginBottom: 8,
+    paddingLeft: 16,
+    paddingRight: 16,
   },
   intro: {
-    marginBottom: 8
-  }
+    marginBottom: 16,
+    color: "#F7F9F9",
+    paddingLeft: 16,
+    paddingRight: 16,
+    fontSize: 14,
+    lineHeight: 24,
+  },
+  listGroup: {
+    backgroundColor: "rgba(247, 249, 249, .05)",
+    paddingTop: 8,
+    paddingBottom: 8,
+  },
+  listGroupItem: {
+    color: "#F7F9F9",
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingBottom: 8,
+    paddingTop: 8,
+  },
+  buttonPrimary: {
+    width: 50,
+  },
 });
 export default TreeItem;
