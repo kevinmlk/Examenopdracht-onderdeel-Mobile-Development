@@ -55,9 +55,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },
-  cardBody: {
-    
-  },
   title: {
     color: "#F7F9F9",
     fontSize: 24,
@@ -86,8 +83,5 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     paddingTop: 8,
   },
-  cardLink: {
-    color: "#00FF7F",
-  }
 });
 export default TreeItem;

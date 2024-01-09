@@ -10,8 +10,9 @@ const TreesDetailsScreen = ({ route, navigation }) => {
     <View style={styles.screen}>
       <Article articleId={id} />
       <Button
-        title="back to Trees"
+        title="back to all Trees"
         onPress={() => navigation.navigate('Trees')}
+        color='#198754'
       />
     </View>
   );
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: "#F8F6F6",
-  }
+    backgroundColor: "#171A21",
+  },
 });
 export default TreesDetailsScreen;
