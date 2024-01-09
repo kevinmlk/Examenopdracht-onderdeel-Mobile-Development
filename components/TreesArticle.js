@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, Platform } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Platform, Button } from 'react-native';
 
 const TreeArticle = props => {
   const [article, setArticle] = useState({});
@@ -51,6 +51,10 @@ const TreeArticle = props => {
           <Text style={styles.listGroupItem}>{article.nativeAreas}</Text>
           <Text style={styles.listGroupItem}>{article.plantType}</Text>
         </View>
+        {/* Tree additional info */}
+        <Button
+          title="Shop the tree"
+        />
       </View>
     </ScrollView>
   );
