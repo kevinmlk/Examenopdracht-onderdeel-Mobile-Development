@@ -52,7 +52,7 @@ const TreesScreen = ({ navigation }) => {
             botanicalName={item.botanicalName}
             nativeAreas={item.nativeAreas}
             plantFamily={item.plantFamily}
-            intro={item.introText}
+            introText={item.introText}
             navigation={navigation}
             onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
           />

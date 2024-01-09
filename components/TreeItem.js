@@ -11,11 +11,16 @@ const TreeItem = props => {
             uri: props.banner
           }}
         />
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.intro}>{props.introText}</Text>
-        <Text style={styles.intro}>Botanical name: {props.botanicalName}</Text>
-        <Text style={styles.intro}>Native area: {props.nativeAreas}</Text>
-        <Text style={styles.intro}>Plant family: {props.plantFamily}</Text>
+        <View style={styles.cardBody}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.intro}>{props.introText}</Text>
+          {/* Tree list info */}
+          <View>
+            <Text style={styles.listGroupItem}>Botanical name: {props.botanicalName}</Text>
+            <Text style={styles.listGroupItem}>Native area: {props.nativeAreas}</Text>
+            <Text style={styles.listGroupItem}>Plant family: {props.plantFamily}</Text>
+          </View>
+        </View>
       </View>
     </TouchableOpacity >
   );
@@ -23,7 +28,6 @@ const TreeItem = props => {
 
 const styles = StyleSheet.create({
   treeItem: {
-    padding: 12,
     marginVertical: 8,
     backgroundColor: "#fff",
     borderRadius: 5,
@@ -36,11 +40,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
   },
   banner: {
-    height: 100
+    height: 270
+  },
+  cardBody: {
+    padding: 12,
   },
   title: {
-    fontWeight: "bold",
-    color: "#D24335",
+    color: "#171A21",
     fontSize: 16,
     marginTop: 12,
     marginBottom: 12,

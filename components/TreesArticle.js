@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     marginBottom: 24,
+    fontFamily: 'Inter-Regular',
   },
   body: {
     lineHeight: 24
