@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Platform } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Platform, Button } from 'react-native';
 
 // Import Component
 import TreeTile from '../components/TreeTile';
@@ -38,47 +38,69 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>Support What Supports You</Text>
-      <Text style={styles.bodyText}>The goal is to grow millions of trees by supporting, your money goes directly towards planting trees, saving trees, and building greenhouses for trees.</Text>
-      <FlatList
-        data={limitArticles}
-        keyExtractor={item => item.id}//gebruik id als key voor de flatlist
-        renderItem={({ item }) => {
-          if (Platform.OS == 'android') {
-            //ddev describe om port number te weten te komen
-            item.treeThumbnail = item.treeThumbnail.replace('examenopdracht-support-trees.ddev.site', '10.0.2.2:32783')
-          }
-          return <TreeTile
-            id={item.id}
-            title={item.title}
-            banner={item.treeThumbnail}
-            botanicalName={item.botanicalName}
-            nativeAreas={item.nativeAreas}
-            treeHeight={item.treeHeight}
-            treeWidth={item.treeWidth}
-            plantFamily={item.plantFamily}
-            introText={item.introText}
-            fullText={item.articleText}
-            treeLink={item.treeLink}
-            navigation={navigation}
-            onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
-          />
-        }}
-      />
+      <View style={styles.headerSection}>
+        <Text style={styles.headerTitle}>Support What Supports You</Text>
+        <Text style={styles.bodyText}>The goal is to grow millions of trees by supporting, your money goes directly towards planting trees, saving trees, and building greenhouses for trees.</Text>
+      </View>
+      <View style={styles.treesContainer}>
+        <FlatList
+          data={limitArticles}
+          keyExtractor={item => item.id}//gebruik id als key voor de flatlist
+          renderItem={({ item }) => {
+            if (Platform.OS == 'android') {
+              //ddev describe om port number te weten te komen
+              item.treeThumbnail = item.treeThumbnail.replace('examenopdracht-support-trees.ddev.site', '10.0.2.2:32783')
+            }
+            return <TreeTile
+              id={item.id}
+              title={item.title}
+              banner={item.treeThumbnail}
+              botanicalName={item.botanicalName}
+              nativeAreas={item.nativeAreas}
+              treeHeight={item.treeHeight}
+              treeWidth={item.treeWidth}
+              plantFamily={item.plantFamily}
+              introText={item.introText}
+              fullText={item.articleText}
+              treeLink={item.treeLink}
+              navigation={navigation}
+              onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
+            />
+          }}
+        />
+        {/* Button to go to trees screen */}
+        <Button
+          title="All trees"
+          onPress={() => navigation.navigate('Trees')}
+          color='#198754'
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 16,
+    padding: 24,
     backgroundColor: "#171A21",
   },
-  title: {
+  headerSection: {
+    marginBottom: 16,
+    borderBottomWidth: .2,
+    borderBottomColor: '#F7F9F9',
+    paddingBottom: 16,
+  },
+  headerTitle: {
     fontSize: 24,
     color: "#F7F9F9",
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 16,
+  },
+  bodyText: {
+    color: '#F7F9F9',
+  },
+  treesContainer: {
+    gap: 16,
   }
 });
 

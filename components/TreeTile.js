@@ -3,49 +3,39 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 const TreeTile = props => {
   return (
-    <TouchableOpacity activeOpacity={0.5} onPress={() => props.onSelectArticle(props.id)}>
-      <View style={styles.tilesContainer}>
-        <View style={styles.tilesRow}>
-          <View style={styles.treeContainer}>
-            <View style={styles.treeItem}>
-              <Image
-                style={styles.banner}
-                source={{
-                  uri: props.banner
-                }}
-              />
-              <View style={styles.cardBody}>
-                <Text style={styles.cardBadge}>{props.plantFamily}</Text>
-                <Text style={styles.cardTitle}>{props.botanicalName}</Text>
-                <Text style={styles.cardText}>{props.title}</Text>
-              </View>
-            </View>
-          </View>
-        </View>
+    <TouchableOpacity activeOpacity={0.5} onPress={() => props.onSelectArticle(props.id)} style={styles.treeItem}>
+      <Image
+        style={styles.banner}
+        source={{
+          uri: props.banner
+        }}
+      />
+      <View style={styles.cardBody}>
+        <Text style={styles.cardBadge}>{props.plantFamily}</Text>
+        <Text style={styles.cardTitle}>{props.botanicalName}</Text>
+        <Text style={styles.cardText}>{props.title}</Text>
       </View>
-    </TouchableOpacity >
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  tilesContainer: {
-  
-  },
-  tilesRow: {
-    flex: 1,
-  },
-  treeContainer: {
-    width: 160,
-  },
   treeItem: {
     backgroundColor: 'rgba(247, 249, 249, .05)',
     borderRadius: 10,
-    marginVertical: '2%',
+    width: '100%',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    gap: 16,
+    marginVertical: 8,
   },
   banner: {
-    height: 120,
+    width: 140,
+    height: '100%',
     borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
   },
   cardBody: {
     padding: 16,
