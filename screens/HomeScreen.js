@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Platform, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Platform, Button, ScrollView } from 'react-native';
 
 // Import Component
 import TreeTile from '../components/TreeTile';
@@ -36,19 +36,23 @@ const HomeScreen = ({ navigation }) => {
   // Slice the data items
   const limitArticles = articles.slice(0, 4);
 
+  // Header render
+  const renderHeader = () => (
+    // Tree header section
+    <View style={styles.headerSection}>
+      <Text style={styles.headerTitle}>Support What Supports You</Text>
+      <Text style={styles.bodyText}>The goal is to grow millions of trees by supporting, your money goes directly towards planting trees, saving trees, and building greenhouses for trees.</Text>
+    </View>
+  );
+
   return (
     <View style={styles.screen}>
-      <View style={styles.headerSection}>
-        <Text style={styles.headerTitle}>Support What Supports You</Text>
-        <Text style={styles.bodyText}>The goal is to grow millions of trees by supporting, your money goes directly towards planting trees, saving trees, and building greenhouses for trees.</Text>
-      </View>
       <View style={styles.treesContainer}>
         <FlatList
           data={limitArticles}
-          keyExtractor={item => item.id}//gebruik id als key voor de flatlist
+          keyExtractor={item => item.id}
           renderItem={({ item }) => {
             if (Platform.OS == 'android') {
-              //ddev describe om port number te weten te komen
               item.treeThumbnail = item.treeThumbnail.replace('examenopdracht-support-trees.ddev.site', '10.0.2.2:32783')
             }
             return <TreeTile
@@ -67,6 +71,7 @@ const HomeScreen = ({ navigation }) => {
               onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
             />
           }}
+          ListHeaderComponent={renderHeader}
         />
         {/* Button to go to trees screen */}
         <Button
@@ -101,6 +106,7 @@ const styles = StyleSheet.create({
   },
   treesContainer: {
     gap: 16,
+    marginBottom: 32,
   }
 });
 
