@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, Platform, Button, ScrollView } from 'react-native';
 
 // Import Components
-import TreeTile from '../components/TreeTile';
+import TreeTile from '../../components/TreeTile';
 
 // Trees articles
 const HomeScreen = ({ navigation }) => {
