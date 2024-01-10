@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 // Import Trees article
 import Article from '../../components/TreesArticle';
 
-const TreesDetailsScreen = ({ route, navigation }) => {
+const TreesDetailsScreen = ( { route } ) => {
   const { id } = route.params;
 
   return (

@@ -70,19 +70,12 @@ const HomeScreen = () => {
               introText={item.introText}
               fullText={item.articleText}
               treeLink={item.treeLink}
-              // navigation={navigation}
-              onSelectArticle={ (selectedId) => navigation.navigate('Details', {screen: 'Details', params: {id: selectedId}})}
-              // onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
+              navigation={navigation}
+              onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
             />
           }}
           ListHeaderComponent={renderHeader}
         />
-        {/* Button to go to trees screen */}
-        {/* <Button
-          title="All trees"
-          onPress={() => navigation.navigate('Trees')}
-          color='#198754'
-        /> */}
       </View>
     </View>
   );

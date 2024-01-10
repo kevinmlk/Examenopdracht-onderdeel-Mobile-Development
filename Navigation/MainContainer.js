@@ -49,18 +49,27 @@ function TabNavigator() {
       labelStyle: { paddingBottom: 10, fontSize: 10 },        
     }}
     >
-      <Tab.Screen name={homeName} component={HomeScreen}/>
-      <Tab.Screen name={treesName} component={StackNavigator}/>
+      <Tab.Screen name={homeName} component={HomeTreeNavigator}/>
+      <Tab.Screen name={treesName} component={TreeNavigator}/>
       <Tab.Screen name={aboutName} component={AboutScreen}/>
       <Tab.Screen name={favoritesName} component={FavoritesScreen}/>
     </Tab.Navigator>
   )
 }
 
-function StackNavigator() {
+function TreeNavigator() {
   return(
     <Stack.Navigator>
       <Stack.Screen name={treesName} component={TreesScreen} />
+      <Stack.Screen name={treeDetailsName} component={TreesDetailsScreen} />
+    </Stack.Navigator>
+  )
+}
+
+function HomeTreeNavigator() {
+  return(
+    <Stack.Navigator>
+      <Stack.Screen name={homeName} component={HomeScreen} />
       <Stack.Screen name={treeDetailsName} component={TreesDetailsScreen} />
     </Stack.Navigator>
   )

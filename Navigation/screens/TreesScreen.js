@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // Import Component
 import TreeItem from '../../components/TreeItem';
 
 // Trees articles
-const TreesScreen = ({ navigation }) => {
+const TreesScreen = () => {
+  const navigation = useNavigation();
   const [articles, getArticles] = useState([]);
 
   const getTreesArticles = async () => {
