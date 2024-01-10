@@ -33,13 +33,15 @@ const HomeScreen = ({ navigation }) => {
     getTreesArticles();
   }, []);
 
+  // Slice the data items
+  const limitArticles = articles.slice(0, 4);
+
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>Support What Supports You</Text>
       <Text style={styles.bodyText}>The goal is to grow millions of trees by supporting, your money goes directly towards planting trees, saving trees, and building greenhouses for trees.</Text>
       <FlatList
-        style={styles.list}
-        data={articles}
+        data={limitArticles}
         keyExtractor={item => item.id}//gebruik id als key voor de flatlist
         renderItem={({ item }) => {
           if (Platform.OS == 'android') {
@@ -69,11 +71,8 @@ const HomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 24,
+    padding: 16,
     backgroundColor: "#171A21",
-  },
-  list: {
-    height: "90%",
   },
   title: {
     fontSize: 24,
