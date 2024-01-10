@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+// Import bottom navigation modules
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -19,9 +19,11 @@ const aboutName = 'About';
 const favoritesName = 'Favorites';
 const treeDetailsName = 'Details';
 
+// Create navigator variables
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+// Tab navigator function
 function TabNavigator() {
   return (
     <Tab.Navigator
@@ -49,32 +51,35 @@ function TabNavigator() {
       labelStyle: { paddingBottom: 10, fontSize: 10 },        
     }}
     >
-      <Tab.Screen name={homeName} component={HomeTreeNavigator}/>
-      <Tab.Screen name={treesName} component={TreeNavigator}/>
+      <Tab.Screen name={homeName} component={HomeStack}/>
+      <Tab.Screen name={treesName} component={TreeStack}/>
       <Tab.Screen name={aboutName} component={AboutScreen}/>
       <Tab.Screen name={favoritesName} component={FavoritesScreen}/>
     </Tab.Navigator>
   )
 }
 
-function TreeNavigator() {
+// Stack navigator for the trees and details screens
+function TreeStack() {
   return(
     <Stack.Navigator>
-      <Stack.Screen name={treesName} component={TreesScreen} />
+      <Stack.Screen name='TreeStack' component={TreesScreen} options={{ headerShown: false }} />
       <Stack.Screen name={treeDetailsName} component={TreesDetailsScreen} />
     </Stack.Navigator>
   )
 }
 
-function HomeTreeNavigator() {
+// Stack navigator for the trees on the home screen
+function HomeStack() {
   return(
     <Stack.Navigator>
-      <Stack.Screen name={homeName} component={HomeScreen} />
+      <Stack.Screen name='HomeStack' component={HomeScreen} options={{ headerShown: false }} />
       <Stack.Screen name={treeDetailsName} component={TreesDetailsScreen} />
     </Stack.Navigator>
   )
 }
 
+// Export bottom navigation
 export default function MainContainer() {
   return(
     <NavigationContainer>
