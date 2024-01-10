@@ -7,7 +7,6 @@ import MainContainer from './Navigation/MainContainer';
 function App() {
   return(
     <MainContainer />
-
   );
 }
 

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, Platform, Button, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // Import Components
 import TreeTile from '../../components/TreeTile';
 
 // Trees articles
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
+  const navigation = useNavigation();
+
   const [articles, getArticles] = useState([]);
 
   const getTreesArticles = async () => {
@@ -67,8 +70,9 @@ const HomeScreen = ({ navigation }) => {
               introText={item.introText}
               fullText={item.articleText}
               treeLink={item.treeLink}
-              navigation={navigation}
-              onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
+              // navigation={navigation}
+              onSelectArticle={ (selectedId) => navigation.navigate('Details', {screen: 'Details', params: {id: selectedId}})}
+              // onSelectArticle={(selectedId) => { navigation.navigate('Details', { id: selectedId }) }}
             />
           }}
           ListHeaderComponent={renderHeader}

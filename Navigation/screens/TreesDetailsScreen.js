@@ -9,11 +9,6 @@ const TreesDetailsScreen = ({ route, navigation }) => {
   return (
     <View style={styles.screen}>
       <Article articleId={id} />
-      {/* <Button
-        title="back to all Trees"
-        onPress={() => navigation.navigate('Trees')}
-        color='#198754'
-      /> */}
     </View>
   );
 }

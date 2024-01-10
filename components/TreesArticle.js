@@ -69,7 +69,7 @@ const TreeArticle = props => {
           <Text style={styles.listGroupItem}><Text style={styles.strongText}>Plant type: </Text>{article.plantType}</Text>
         </View>
         {/* Tree additional info */}
-        <OpenURLButton url={props.treeLink}>Shop the tree</OpenURLButton>
+        <OpenURLButton url={article.treeLink}>Shop the tree</OpenURLButton>
       </View>
     </ScrollView>
   );
