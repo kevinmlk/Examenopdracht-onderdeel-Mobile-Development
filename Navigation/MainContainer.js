@@ -51,8 +51,8 @@ function TabNavigator() {
       labelStyle: { paddingBottom: 10, fontSize: 10 },        
     }}
     >
-      <Tab.Screen name={homeName} component={HomeStack}/>
-      <Tab.Screen name={treesName} component={TreeStack}/>
+      <Tab.Screen name={homeName} component={HomeStack} options={{ headerShown: false }} />
+      <Tab.Screen name={treesName} component={TreeStack} options={{ headerShown: false }} />
       <Tab.Screen name={aboutName} component={AboutScreen}/>
       <Tab.Screen name={favoritesName} component={FavoritesScreen}/>
     </Tab.Navigator>
@@ -63,8 +63,27 @@ function TabNavigator() {
 function TreeStack() {
   return(
     <Stack.Navigator>
-      <Stack.Screen name='TreeStack' component={TreesScreen} options={{ headerShown: false }} />
-      <Stack.Screen name={treeDetailsName} component={TreesDetailsScreen} />
+      <Stack.Screen
+        name='TreeStack'
+        component={TreesScreen}
+        options={{
+          title: 'All Trees',
+          headerStyle: {
+            backgroundColor: '#171A21', // Set the background color of the header
+          },
+          headerTintColor: '#F7F9F9',
+        }}
+      />
+      <Stack.Screen
+        name={treeDetailsName}
+        component={TreesDetailsScreen}
+        options={{
+          headerStyle: {
+            backgroundColor: '#171A21', // Set the background color of the header
+          },
+          headerTintColor: '#F7F9F9',
+        }}
+      />
     </Stack.Navigator>
   )
 }
@@ -73,8 +92,26 @@ function TreeStack() {
 function HomeStack() {
   return(
     <Stack.Navigator>
-      <Stack.Screen name='HomeStack' component={HomeScreen} options={{ headerShown: false }} />
-      <Stack.Screen name={treeDetailsName} component={TreesDetailsScreen} />
+      <Stack.Screen
+        name='Support Trees'
+        component={HomeScreen}
+        options={{
+          headerStyle: {
+            backgroundColor: '#171A21', // Set the background color of the header
+          },
+          headerTintColor: '#F7F9F9',
+        }}
+      />
+      <Stack.Screen
+      name={treeDetailsName}
+      component={TreesDetailsScreen}
+      options={{
+        headerStyle: {
+          backgroundColor: '#171A21', // Set the background color of the header
+        },
+        headerTintColor: '#F7F9F9',
+      }}
+      />
     </Stack.Navigator>
   )
 }
