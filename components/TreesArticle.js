@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, Platform, Button, Linking } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Platform, Button, Linking, TouchableOpacity } from 'react-native';
 
 // Tree link web browser linking
 const OpenURLButton = ({url, children}) => {
@@ -71,9 +71,9 @@ const TreeArticle = props => {
         </View>
         {/* Tree additional info */}
         <OpenURLButton url={article.treeLink}>Shop the tree</OpenURLButton>
-        <Button
-          title="Add to favorites"
-        />
+        <TouchableOpacity style={styles.buttonOutline} onPress={() => {}}>
+          <Text style={styles.buttonText}>Add to favorites</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -118,6 +118,23 @@ const styles = StyleSheet.create({
   strongText: {
     color: '#198754',
     fontWeight: '700',
+  },
+  buttonOutline: {
+    backgroundColor: '#171A21',
+    padding: 10,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#F7F9F9',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#F7F9F9',
+    fontSize: 14,
+    fontWeight: '600',
+    textTransform: 'uppercase',
   },
 });
 
