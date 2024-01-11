@@ -73,9 +73,6 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: "#171A21",
   },
-  list: {
-    height: "90%",
-  },
   title: {
     fontSize: 24,
     color: "#F7F9F9",

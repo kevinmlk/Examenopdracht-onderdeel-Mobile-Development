@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     color: '#F7F9F9',
     lineHeight: 24,
     paddingBottom: 32,
+    fontSize: 14,
   },
 });
 

@@ -53,7 +53,16 @@ function TabNavigator() {
     >
       <Tab.Screen name={homeName} component={HomeStack} options={{ headerShown: false }} />
       <Tab.Screen name={treesName} component={TreeStack} options={{ headerShown: false }} />
-      <Tab.Screen name={aboutName} component={AboutScreen}/>
+      <Tab.Screen
+      name={aboutName}
+      component={AboutScreen}
+      options={{
+        headerStyle: {
+          backgroundColor: '#171A21', // Set the background color of the header
+        },
+        headerTintColor: '#F7F9F9',
+      }}
+      />
       <Tab.Screen name={favoritesName} component={FavoritesScreen}/>
     </Tab.Navigator>
   )
