@@ -69,7 +69,16 @@ function TabNavigator() {
         headerTintColor: '#F7F9F9',
       }}
       />
-      <Tab.Screen name={favoritesName} component={FavoritesScreen}/>
+      <Tab.Screen
+      name={favoritesName}
+      component={FavoritesScreen}
+      options={{
+        headerStyle: {
+          backgroundColor: '#171A21',
+        },
+        headerTintColor: '#F7F9F9',
+      }}
+      />
     </Tab.Navigator>
   )
 }
