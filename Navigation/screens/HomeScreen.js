@@ -16,7 +16,7 @@ const HomeScreen = () => {
       let url;
       if (Platform.OS == 'android') {
         //ddev describe om port number te weten te komen
-        url = "http://10.0.2.2:32783/api/trees/";
+        url = "http://10.0.2.2:51031/api/trees/";
       }
       else {
         url = "http://examenopdracht-support-trees.ddev.site/api/trees/";
@@ -56,7 +56,7 @@ const HomeScreen = () => {
           keyExtractor={item => item.id}
           renderItem={({ item }) => {
             if (Platform.OS == 'android') {
-              item.treeThumbnail = item.treeThumbnail.replace('examenopdracht-support-trees.ddev.site', '10.0.2.2:32783')
+              item.treeThumbnail = item.treeThumbnail.replace('examenopdracht-support-trees.ddev.site', '10.0.2.2:51031')
             }
             return <TreeTile
               id={item.id}

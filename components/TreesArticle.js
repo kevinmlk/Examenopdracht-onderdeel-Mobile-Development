@@ -19,19 +19,13 @@ const OpenURLButton = ({url, children}) => {
   return <Button title={children} onPress={handlePress} color='#198754' />;
 };
 
-const [favoriteItems, setFavoriteItems ] = useState([]);
-
-const addToFavorites = () => {
-  
-}
-
 const TreeArticle = props => {
   const [article, setArticle] = useState({});
   const getArticleData = async () => {
     try {
       let url;
       if (Platform.OS == 'android') {
-        url = "http://10.0.2.2:32783/api/trees/";
+        url = "http://10.0.2.2:51031/api/trees/";
       }
       else {
         url = "http://examenopdracht-support-trees.ddev.site/api/trees/";
@@ -43,7 +37,7 @@ const TreeArticle = props => {
       const json = await response.json();
       if (Platform.OS == 'android') {
         //ddev describe om port number te weten te komen
-        json.treeThumbnail = json.treeThumbnail.replace("examenopdracht-support-trees.ddev.site", "10.0.2.2:32783");
+        json.treeThumbnail = json.treeThumbnail.replace("examenopdracht-support-trees.ddev.site", "10.0.2.2:51031");
       }
       setArticle(json);
     } catch (error) {
