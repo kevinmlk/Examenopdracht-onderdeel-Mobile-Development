@@ -18,6 +18,13 @@ const OpenURLButton = ({url, children}) => {
 
   return <Button title={children} onPress={handlePress} color='#198754' />;
 };
+
+const [favoriteItems, setFavoriteItems ] = useState([]);
+
+const addToFavorites = () => {
+  
+}
+
 const TreeArticle = props => {
   const [article, setArticle] = useState({});
   const getArticleData = async () => {
@@ -70,6 +77,9 @@ const TreeArticle = props => {
         </View>
         {/* Tree additional info */}
         <OpenURLButton url={article.treeLink}>Shop the tree</OpenURLButton>
+        <Button
+          title="Add to favorites"
+        />
       </View>
     </ScrollView>
   );

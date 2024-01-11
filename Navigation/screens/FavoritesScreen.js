@@ -1,33 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, TextInput, View, Button, FlatList, TouchableOpacity } from 'react-native';
 
 // Import Component
 import TreeItem from '../../components/TreeItem';
 
 // Trees articles
-const FavoritesScreen = ({ navigation }) => {
-  const [articles, getArticles] = useState([]);
+const FavoritesScreen = () => {
 
-  const getTreesArticles = async () => {
-    try {
-      let url;
-      if (Platform.OS == 'android') {
-        //ddev describe om port number te weten te komen
-        url = "http://10.0.2.2:32783/api/trees/";
-      }
-      else {
-        url = "http://examenopdracht-support-trees.ddev.site/api/trees/";
-      }
-
-      const response = await fetch(url, {
-        "method": "GET",
-      });
-      const json = await response.json();
-      getArticles(json.items);
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   useEffect(() => {
     getTreesArticles();
