@@ -44,12 +44,18 @@ function TabNavigator() {
         }
         return <Ionicons name={iconName} size={size} color={color} />
       },
+      tabBarActiveTintColor: '#00FF7F',
+          tabBarInactiveTintColor: '#F7F9F9',
+          tabBarStyle: {
+            backgroundColor: '#171A21',
+          },
+          tabBarLabelStyle: {
+            fontSize: 14,
+          },
+          tabBarTabStyle: {
+            justifyContent: 'center',
+          },
     })}
-    tabBarOptions={{
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-      labelStyle: { paddingBottom: 10, fontSize: 10 },        
-    }}
     >
       <Tab.Screen name={homeName} component={HomeStack} options={{ headerShown: false }} />
       <Tab.Screen name={treesName} component={TreeStack} options={{ headerShown: false }} />
@@ -58,7 +64,7 @@ function TabNavigator() {
       component={AboutScreen}
       options={{
         headerStyle: {
-          backgroundColor: '#171A21', // Set the background color of the header
+          backgroundColor: '#171A21',
         },
         headerTintColor: '#F7F9F9',
       }}
@@ -78,7 +84,7 @@ function TreeStack() {
         options={{
           title: 'All Trees',
           headerStyle: {
-            backgroundColor: '#171A21', // Set the background color of the header
+            backgroundColor: '#171A21', 
           },
           headerTintColor: '#F7F9F9',
         }}
@@ -88,7 +94,7 @@ function TreeStack() {
         component={TreesDetailsScreen}
         options={{
           headerStyle: {
-            backgroundColor: '#171A21', // Set the background color of the header
+            backgroundColor: '#171A21',
           },
           headerTintColor: '#F7F9F9',
         }}
@@ -106,7 +112,7 @@ function HomeStack() {
         component={HomeScreen}
         options={{
           headerStyle: {
-            backgroundColor: '#171A21', // Set the background color of the header
+            backgroundColor: '#171A21',
           },
           headerTintColor: '#F7F9F9',
         }}
@@ -116,7 +122,7 @@ function HomeStack() {
       component={TreesDetailsScreen}
       options={{
         headerStyle: {
-          backgroundColor: '#171A21', // Set the background color of the header
+          backgroundColor: '#171A21',
         },
         headerTintColor: '#F7F9F9',
       }}
