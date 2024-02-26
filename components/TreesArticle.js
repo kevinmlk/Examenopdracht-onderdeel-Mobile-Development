@@ -25,7 +25,7 @@ const TreeArticle = props => {
     try {
       let url;
       if (Platform.OS == 'android') {
-        url = "http://10.0.2.2:51031/api/trees/";
+        url = "http://10.0.2.2:32771/api/trees/";
       }
       else {
         url = "http://examenopdracht-support-trees.ddev.site/api/trees/";
@@ -37,7 +37,7 @@ const TreeArticle = props => {
       const json = await response.json();
       if (Platform.OS == 'android') {
         //ddev describe om port number te weten te komen
-        json.treeThumbnail = json.treeThumbnail.replace("examenopdracht-support-trees.ddev.site", "10.0.2.2:51031");
+        json.treeThumbnail = json.treeThumbnail.replace("examenopdracht-support-trees.ddev.site", "10.0.2.2:32771");
       }
       setArticle(json);
     } catch (error) {
